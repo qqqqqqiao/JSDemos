@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo1</title>
+</head>
+<body>
+	hello
+	<script type="text/javascript">
+		var obj1 = {a:undefined,b:function(){},c:NaN};
+		console.log(JSON.stringify(obj1));
+		var obj2 = {undefined,a:true};
+		console.log(JSON.stringify(obj2));
+
+		var obj3 = [undefined,function(){},NaN];
+		console.log(JSON.stringify(obj3));
+		var obj4 = [{a:1},undefined];
+		console.log(JSON.stringify(obj4));
+
+		var obj5 = {};
+		Object.defineProperties(obj5,{
+			'foo':{value:1,enumerable:true},
+			bar:{value:2,enumerable:false}
+		});
+		console.log(obj5);
+		Object.getOwnPropertyNames(obj5).forEach(function(prop){
+			console.log(prop);
+		});
+
+		var obj6 = {
+			prop1 : 1,
+			prop2 : 2,
+			prop3 : 3
+		}
+		var selectedPoperties = ["prop1","prop2"];
+		console.log(JSON.stringify(obj6,selectedPoperties));
+
+		function f(k,v){
+			if(typeof v ==="number"){
+				v = v*2;
+			}
+			return v;
+		}
+		console.log(JSON.stringify(obj6,f));
+
+		var obj7={a:{b:1}};
+		function f2(k,v){
+			console.log("["+k+"]:"+v);
+			return v;
+		}
+		JSON.stringify(obj7,f2);
+
+		function f3(k,v){
+			if(typeof v ==="string"){
+				return undefined;
+			}
+			return v;
+		}
+		console.log(JSON.stringify({a:"a",b:1},f3));
+
+		console.log(JSON.stringify({a:"a",b:1},null,2));
+		console.log(JSON.stringify({a:"a",b:1},null,5));
+		console.log(JSON.stringify({a:"a",b:1},null,"hello:"));
+
+		var user1={
+			fname:"san",
+			lname:"zhang",
+			get fullName(){
+				return this.lname+this.fname;
+			}
+		};
+		console.log(JSON.stringify(user1));
+	</script>
+</body>
+</html>
