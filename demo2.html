@@ -28,6 +28,89 @@
 
 		var o4 = {0.7:"world"};
 		console.log(o4[0.7]);
+
+		var o5=10;
+		var o6 = eval(o5+10);
+		console.log(typeof o6);
+
+		console.log(eval("var fooo5=1;"));
+
+		if(window.a){
+			console.log("window.a");
+		}
+
+		var o7 = {
+			k1:1,
+			k2:2
+		};
+		console.log(Object.keys(o7));
+
+		var o8 = {
+			k1:1
+		};
+		console.log(Object.keys(o8));
+		delete o8.k1;
+		console.log(Object.keys(o8));
+
+		var o9 = Object.defineProperty({}, 'p', {
+			value: 123,
+			configurable:false
+		});
+		console.log(delete o9.p);
+
+		var o10 = {};
+		console.log(delete o10.toString);
+		console.log(o10.toString);
+
+		var o11 = {p:1};
+		console.log('p' in o11);
+
+		console.log('x' in window);
+
+		console.log(''==false);
+
+		var o12 = new Object;
+		console.log(o12.hasOwnProperty('toString'));
+		console.log('toString' in o12);
+
+		var o13 = {a:1,b:2,c:3};
+		for(var i in o13){
+			console.log(o13[i]);
+		}
+		var props = [];
+		var i = 0;
+		for(props[i++] in o13);
+		console.log(props); 
+
+		function Person(name){
+			this.name = name;
+		}
+		Person.prototype.describe = function(){
+			//this.describe + this.name;
+		}
+		var person = new Person('joe');
+		for(var k in person){
+			console.log(k); 
+		}
+		for(var k in person){
+			if(person.hasOwnProperty(k)){
+				console.log(k);
+			}
+		}
+
+		var o14 = {p1:10,p2:20};
+		with (o14){
+			p1 = 1;
+			p2 = 2;
+		}
+		console.log(o14.p1);
+
+		/*with(document.links[0]){
+			console.log(href);
+			console.log(title);
+			console.log(style);
+		}*/
+
 	</script>
 </body>
 </html>
