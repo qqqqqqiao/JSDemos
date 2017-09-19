@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo3</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var o1 = {a:1};
+		var o2 = new Object(o1);
+		console.log(o1===o2);
+		console.log(new Object(123) instanceof Number);
+
+		Object.print = function(o){
+			console.log(o);
+		};
+		var o3 = new Object();
+		Object.print(o3);
+
+		Object.prototype.print2 = function(){console.log(this)};
+		var o4 = new Object();
+		o4.print2();
+
+		function isObject(value){
+			return value === Object(value);
+		}
+		console.log(isObject([]));
+		console.log(isObject(true));
+	</script>
+</body>
+</html>
