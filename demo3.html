@@ -26,6 +26,30 @@
 		}
 		console.log(isObject([]));
 		console.log(isObject(true));
+
+		var o5 = {
+			k1:1,
+			k2:2
+		};
+		console.log(Object.keys(o5));
+		console.log(Object.keys(o5).length);
+		var o6 = ["hello","world"];
+		console.log(Object.getOwnPropertyNames(o6));
+		console.log(Object.getOwnPropertyNames(o6).length);
+
+		var o7 = new Object();
+		console.log(o7.valueOf()===o7);
+		console.log(1+o7);
+
+		o7.valueOf = function(){
+			return 2;
+		}
+		console.log(1+o7);
+
+		console.log(o7.toString());
+		console.log(typeof o7.toString());
+
+		
 	</script>
 </body>
 </html>
