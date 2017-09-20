@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo4</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arr1 = new Array(2);
+		console.log(arr1);
+
+		var arr2 = ['a','b'];
+		console.log(0 in arr2);
+
+		console.log(typeof arr2);
+		console.log(Array.isArray(arr2));
+		console.log(arr2.valueOf());
+		console.log(arr2.toString());
+
+		var arr3 = [];
+		console.log(arr3.push(1));
+		console.log(arr3.push('a',true,{}));
+		console.log(arr3);
+
+		var arr4 = [1,2,3];
+		var arr5 = [4,5,6];
+		console.log(arr4.push.apply(arr4,arr5));
+		console.log(arr4);
+
+		var arr6 = ['a','b','c','d'];
+		console.log(arr6.pop());
+		console.log(arr6);
+		console.log([].pop());
+
+		console.log(arr6.join(' '));
+		console.log(arr6.join('|'));
+		console.log(arr6.join());
+
+		console.log([undefined,null].join());
+
+		console.log(Array.prototype.join.call('hello','-'));
+
+		var o1 = {0:'a',1:'b',length:2}
+		console.log(Array.prototype.join.call(o1,'-'));
+
+		console.log(['hello'].concat(['js','world']));
+
+		var o2 = {a:1};
+		var oldArray = [o2];
+		var newArray = oldArray.concat();
+		o2.a=2;
+		console.log(newArray[0].a);
+
+		console.log([].concat.call({a:1},{b:2}));
+		console.log([].concat.call({a:1},[2]));
+		console.log([2].concat({a:1}));
+
+		var arr7 = ['a','b','c','d'];
+		console.log(arr7.shift());
+		console.log(arr7);
+
+		console.log([].shift());
+
+		var arr8 = [1,2,3,4,5,6];
+		var item;
+		while(item = arr8.shift()){
+			console.log(item);
+		}
+		console.log(arr8);
+		console.log((item=1)==true);
+		console.log((item=undefined)==true);
+
+		var arr9 = ['c','d'];
+		console.log(arr9.unshift('a','b'));
+		console.log(arr9);
+		console.log(arr9.reverse());
+		console.log(arr9.slice(0));
+		console.log(arr9.slice(0,1));
+		console.log(arr9.slice(-2,-1));
+		console.log(arr9.slice(2,1));
+		console.log(arr9.slice(8));
+
+		console.log(Array.prototype.slice.call({0:'a',1:'b',length:2}));
+
+		var arr10 = ['a', 'b', 'c', 'd', 'e', 'f'];
+		console.log(arr10.splice(4,2,1,2));
+		console.log(arr10);
+		console.log(arr10.splice(-4,2));
+
+		var arr11 = [1,1,1];
+		console.log(arr11.splice(1,0,2));
+		console.log(arr11);
+
+		console.log(['d','c','b','a'].sort());
+		console.log(['4','3','2','1'].sort());
+		console.log(['101','11','111'].sort());
+
+		var arr12 = ['101','11','111'];
+		console.log(arr12.sort(function(a,b){
+			return a-b;
+		}));
+
+		var arr13 = [
+			{name:"zhangsan",age:30},
+			{name:"lisi",age:24},
+			{name:"wangwu",age:28}
+		];
+		console.log(arr13.sort(function(a,b){
+			return a.age-b.age;
+		}));
+
+		var arr14 = [1,2,3,4];
+		console.log(arr14.map(function(n) {
+			return n+1;
+		}));
+
+		console.log(arr14.map(function(index, elem) {
+			return index-elem;
+		}));
+
+		var upper = function(x){
+			return x.toUpperCase();
+		};
+		console.log([].map.call('abc',upper));
+
+		console.log('abc'.split('').map(upper));
+	</script>
+</body>
+</html>
