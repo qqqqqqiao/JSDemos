@@ -130,8 +130,37 @@
 			return this[e];
 		},arr15));
 
-		
+		var f1 = function(n){return n+1};
+		console.log([1,undefined,2].map(f1));
+		console.log([1,null,2].map(f1));
+		console.log([1,,2].map(f1)[1]);
 
+		console.log(Array(2).map(function(){
+			console.log('enter...');
+			return 1;
+		}));
+		console.log(Array(2));
+
+		function log1(element,index,array){
+			console.log('['+index+']='+element);
+		};
+		[1,2,3].forEach(log1);
+
+		var out1=[];
+		[1,2,3].forEach(function(ele){
+			this.push(ele*ele);
+		},out1);
+		console.log(out1);
+
+		var obj1 = {
+			name:'zhangsan',
+			times:[1,2,3],
+			print:function(){
+				this.times.forEach(function(n){
+					console.log(this.name);
+				})
+			}
+		}
 	</script>
 </body>
 </html>
