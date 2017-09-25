@@ -160,7 +160,84 @@
 					console.log(this.name);
 				})
 			}
+		};
+		obj1.print();
+
+		var obj2 = {
+			name:'zhangsan',
+			times:[1,2,3],
+			print:function(){
+				this.times.forEach(function(n){
+					console.log(this.name);
+				},this)
+			}
+		};
+		obj2.print();
+
+		var arr16 = [1,2,3];
+		for(var i=0;i<arr16.length;i++){
+			if(arr16[i]==2) break;
+			console.log(arr16[i]);
+		};
+
+		var log2 = function(n){
+			console.log(n+1);
+		};
+		[1,undefined,2].forEach(log2);
+		[1,null,2].forEach(log2);
+		[1,,2].forEach(log2);
+
+		var obj3 = {
+			0:1,
+			a:'hello',
+			length:1
 		}
+		Array.prototype.forEach.call(obj3,function(elem,i){
+			console.log(i+':'+elem);
+		});
+
+		var str='hello';
+		Array.prototype.forEach.call(str,function(elem,i){
+			console.log(i+':'+elem);
+		});
+
+		var arr17 = [1,2,3,4,5].filter(function(index) {
+			return (index>3);
+		});
+		console.log(arr17);
+
+		var arr18 = [0,1,false,'a'];
+		console.log(arr18.filter(Boolean));
+
+		var arr19 = [1,2,3,4,5].filter(function(elem,index,arr) {
+			return index%2===0;
+		});
+		console.log(arr19);
+
+		var obj4 = function(n){
+			this.MAX=n;
+		};
+		var myFilter = function(item){
+			if(item>this.MAX) return true;
+		};
+		var arr20 = [1,2,3,4,5,6,7].filter(myFilter, new obj4(4));
+		console.log(arr20);
+
+		var arr21 = [1,2,3,4,5];
+		var flag1 = arr21.some(function(ele,index,arr){
+			return ele>3;
+		});
+		console.log(flag1);
+		var flag2 = arr21.every(function(ele,index,arr){
+			return ele>3;
+		});
+		console.log(flag2);
+
+		[1,2,3,4,5].reduce(function(x,y){
+			console.log(x,y);
+			return x+y;
+		});
+
 	</script>
 </body>
 </html>
