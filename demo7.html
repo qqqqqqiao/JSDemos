@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo7</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var s1 = String.fromCharCode(104,101,108,108,111);
+		console.log(s1);
+
+		var s2 = "abc";
+		console.log(s2.charAt(1));
+		console.log(s2[1]);
+		console.log(s2.charAt(-1));
+
+		console.log(s2.charCodeAt(1));
+		console.log(s2.charCodeAt());
+
+		var s3 = "def";
+		var s4 = s2.concat(s3);
+		console.log(s4);
+		console.log('a'.concat('b','c','d'));
+
+		var one = 1;
+		var two = 2;
+		var three = '3';
+		console.log(''.concat(one,two,three));
+		console.log(one+two+three);
+
+		console.log("javascript".slice(0, 4));
+		console.log("javascript".slice(4));
+		console.log("javascript".slice(-6));
+		console.log("javascript".slice(0,-6));
+		console.log("javascript".slice(2,1));
+
+		console.log("javascript".substring(10,4));
+		console.log("javascript".substring(4,10));
+		console.log("javascript".substring(-3));
+
+		console.log("javascript".substr(4,6));
+		console.log("javascript".substr(4));
+
+		var s5 = 'helloworld'.indexOf('o');
+		console.log(s5);
+		var s6 = 'helloworld'.lastIndexOf('h');
+		console.log(s6);
+
+		console.log('hello world'.indexOf('o',6));
+		console.log('hello world'.lastIndexOf('o',6));
+
+		console.log(" hello ".trim());
+		console.log("\t\nhello".trim());
+
+		console.log('Hello World'.toLowerCase());
+		console.log('Hello World'.toUpperCase());
+
+		console.log(String.prototype.toUpperCase.call(true));
+		console.log(String.prototype.toUpperCase.call(['a','b','c']));
+
+		console.log('apple'.localeCompare('banana'));
+
+		console.log("B".localeCompare('a'));
+		console.log("B">"a");
+
+		var arr1 = 'aat,bat,cat,dat'.match('at');
+		console.log(arr1);
+		console.log(arr1.index);
+		console.log(arr1.input);
+
+		console.log('aat,bat,cat,dat'.search('at'));
+
+		var s5 = 'aaa';
+		console.log(s5.replace('a','b'));
+		console.log(s5);
+
+		console.log('a|b|c'.split('|'));
+		console.log('a|b|c'.split(''));
+		console.log('a|b|c'.split());
+		console.log('|b|c'.split('|'));
+		console.log('a|b|'.split('|'));
+
+		console.log('a|b|c'.split('|',0));
+		console.log('a|b|c'.split('|',1));
+		console.log('a|b|c'.split('|',2));
+		console.log('a|b|c'.split('|',3));
+		console.log('a|b|c'.split('|',4));
+	</script>
+</body>
+</html>
