@@ -238,6 +238,60 @@
 			return x+y;
 		});
 
+		Array.prototype.sum = function(){
+			return this.reduce(function(partial, value){
+				return partial+value;
+			})
+		};
+		console.log([1,2,3,4,5].sum());
+
+		var temp1 = [1,2,3,4,5].reduce(function(x,y){
+			return x+y;
+		},10);
+		console.log(temp1);
+
+		function add(pre,cur){
+			return pre+cur;
+		};
+		console.log([].reduce(add,1));
+
+		function substract(pre,cur){
+			return pre-cur;
+		};
+		var temp2 = [3,2,1].reduce(substract);
+		var temp3 = [3,2,1].reduceRight(substract);
+		console.log(temp2);
+		console.log(temp3);
+
+		function findLongest(entries){
+			return entries.reduce(function(longest,entry){
+				return entry.length>longest.length ? entry : longest;
+			},'');
+		};
+		console.log(findLongest(['aaa','aaaaaaaaa','a']));
+
+		var arr22 = ['a','b','c'];
+		console.log(arr22.indexOf('a'));
+		console.log(arr22.indexOf('z'));
+		console.log(arr22.indexOf('a',1));
+
+		var arr23 = [1,2,3,2,1];
+		console.log(arr23.lastIndexOf(2));
+		console.log(arr23.lastIndexOf(4));
+
+		console.log([NaN].indexOf(NaN));
+		console.log([null].indexOf(null));
+
+		var arr24 = [
+			{name:'tom',email:'tom@example.com'},
+			{name:'cat',email:'cat@example.com'},
+			{name:'tat',email:'tat@example.com'}
+		];
+		arr24.map(function(user){
+			return user.email;
+		}).filter(function(email){
+			return /^t/.test(email);
+		}).forEach(alert);
 	</script>
 </body>
 </html>
