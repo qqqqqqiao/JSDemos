@@ -6,25 +6,21 @@
 </head>
 <body>
 	<script type="text/javascript">
-		var obj = {
-			foo:function(){
-				console.log(this);
-			}
-		};
-		obj.foo();
-		(obj.foo=obj.foo)();
-		(false || obj.foo)();
-		(1, obj.foo)();
+		var today = new Date(2000,0,12);
+		console.log(today.toJSON());
+		console.log(today.toLocaleDateString());
+		console.log(today.toLocaleTimeString());
 
-		var a = {
-		  b: {
-		    m: function() {
-		      console.log(this.p);
-		    },
-		    p: 'Hello'
-		  }
-		};
-		a.b.m();
+		console.log(today.getFullYear());
+		console.log(today.getMonth()+1);
+		console.log(today.getDate());
+		console.log(today.getHours());
+
+		var d1 = new Date(2000,2,1);
+		var d2 = new Date(2000,2,2);
+		var d3 = d2.getTime()-d1.getTime();
+		console.log(Math.floor(d3/(24*3600*1000)));
+		console.log();
 	</script>
 </body>
 </html>
