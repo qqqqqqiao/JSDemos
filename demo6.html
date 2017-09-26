@@ -5,6 +5,35 @@
 	<title>demo6</title>
 </head>
 <body>
-	
+	<script type="text/javascript">
+		console.log(Number(true));
+
+		console.log((10).toString(2));
+		console.log((10).toString(8));
+		console.log((10).toString(16));
+
+		console.log((10).toFixed(2));
+		console.log(10.005.toFixed(2));
+
+		Number.prototype.add = function(x){
+			return this+x;
+		};
+		console.log(8["add"](2));
+
+		Number.prototype.subtract = function(x){
+			return this-x;
+		}
+		console.log((8).add(2).subtract(6));
+
+		Number.prototype.iterate = function(){
+			var result = [];
+			for(var i=0;i<=this;i++){
+				result.push(i);
+			}
+			return result;
+		};
+		console.log((8).iterate());
+		console.log(8['iterate']());
+	</script>
 </body>
 </html>
