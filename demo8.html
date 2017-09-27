@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo8</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var o1 = {p:'a'};
+		console.log(Object.getOwnPropertyDescriptor(o1,'p')); 
+
+		var o2 = Object.defineProperty({},'p',{
+			value:123,
+			writable:false,
+			enumerable:true,
+			configurable:false
+		});
+		console.log(o2.p);
+		o2.p = 234;
+		console.log(o2.p);
+
+		var o3 = Object.defineProperties({},{
+			p1:{value:123,enumerable:true},
+			p2:{value:'abc',enumerable:true},
+			p3:{get:function(){return this.p1+this.p2},
+				enumerable:true,
+				configurable:true
+			}
+		});
+		console.log(o3.p1);
+		console.log(o3.p2);
+		console.log(o3.p3);
+
+		var o4 = {
+			p1:1,
+			p2:2
+		};
+		Object.defineProperty(o4,'p3',{
+			value:3
+		});
+		for(var i in o4){
+			console.log(i,o4[i]);
+		}
+
+		console.log('toString' in o4);
+
+		var o5 = {a:1, b:2};
+		o5.c=3;
+		Object.defineProperty(o5, 'd', {
+			value:4,
+			enumerable:false
+		});
+		console.log(o5.d);
+		for(var key in o5){
+			console.log(o5[key]);
+		};
+		console.log(Object.keys(o5));
+		console.log(JSON.stringify(o5));
+
+		var car = {
+			id:123,
+			color:'red',
+			ownerId:12
+		};
+		var owner = {
+			id:12,
+			name:'tom'
+		};
+		Object.defineProperty(car,'ownerInfo',{
+			value:owner,
+			enumerable:false
+		});
+		console.log(car.ownerInfo);
+		console.log(JSON.stringify(car));
+
+		var o5 = Object.defineProperty({}, 'p', {
+			value:1,
+			writable:true
+		});
+		Object.defineProperty(o5, 'p', {
+			value:2,
+			writable:false
+		});
+		o5.p=3;
+		console.log(o5.p);
+
+		var o6 = {
+			a:1,
+			b:2
+		};
+		console.log(delete o6);
+		console.log(delete o6.b);
+		console.log(o6);
+
+		var arr1 = [1,2];
+		console.log(Object.getOwnPropertyNames(arr1));
+
+		var o7 = Object.defineProperty({},'p',{
+			value:1
+		});
+		//o7.p=1;
+		console.log(Object.getOwnPropertyDescriptor(o7,'p'));
+		console.log(o7.propertyIsEnumerable('p'));
+		
+	</script>
+</body>
+</html>
